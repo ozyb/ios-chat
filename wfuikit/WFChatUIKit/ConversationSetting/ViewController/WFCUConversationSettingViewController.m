@@ -276,7 +276,6 @@
     if(self.conversation.type == Group_Type) {
         if ([self isGroupOwner]) {
             __weak typeof(self) ws = self;
-            [[WFCCIMService sharedWFCIMService] removeConversation:self.conversation clearMessage:YES];
             [[WFCCIMService sharedWFCIMService] dismissGroup:self.conversation.target notifyLines:@[@(0)] notifyContent:nil success:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [ws.navigationController popToRootViewControllerAnimated:YES];
